@@ -8,6 +8,7 @@ gem 'rails_12factor', group: :production
 gem 'puma',           group: :production
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
+gem 'messenger-ruby' #gem for messenger bot
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
