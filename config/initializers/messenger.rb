@@ -3,15 +3,6 @@ Messenger.configure do |config|
   config.page_access_token = 'EAACHLkYsI10BAK36AcNnZAzZBQ7s2aLB8sHdZAhmrcJSEuViLX1KRi1PWI41BeIvBPC2b07oOZAZAtwVQnXFVfrNSdYPNhch02TDUKK6qHI6ZCNJCJGMcsxPqFowUPqZAcj5L1s2qwimP0N9vg5cbIO2F3aI2IIdwT9QIeMzl0vZAQZDZD'
 end
 
-fb_params.entries.each do |entry|
-  entry.messagings.each do |messaging|
-    if messaging.callback.message?
-      Messenger::Client.send(
-        Messenger::Request.new(
-          Messenger::Elements::Text.new(text: "Echo: #{messaging.callback.text}"),
-          messaging.sender_id
-        )
-      )
-    end
-  end
+if fb_params.first_entry.callback.message?
+  Messenger::Client.send( Messenger::Request.new( Messenger::Elements::Text.new(text: "Echo: #{fb_params.first_entry.callback.text}"), fb_params.first_entry.sender_id ) )
 end
